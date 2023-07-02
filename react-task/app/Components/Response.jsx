@@ -1,13 +1,10 @@
 import React from "react";
+import Poster from "./Poster";
 const Results = ({ result }) => {
     return (
     <div style={{ color: "white" }}>
-        {result && result.slice(0, 10).map((result) => (
-        <div key={result.id}>
-            {result.original_title} {result.release_date}:
-            <br/>
-            {result.overview}
-        </div>
+            {result && result.slice(0, 10).map((result) => (
+            <Poster key={result.id} result={result}/>
         ))}
     </div>
     );
