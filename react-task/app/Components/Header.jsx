@@ -1,4 +1,4 @@
-var Header = () => {
+const Header = () => {
   return (
       <header>
         <div style={{width: "100%", height: 28}}></div>

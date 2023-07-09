@@ -1,4 +1,4 @@
-var Footer = () => {
+const Footer = () => {
     return (
         <footer>
             <div style={{width: "100%", height: 140,background: '#272734',}}>
