@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import Details from './Details';
-import Review from './Review';
 
 const Poster = ({result}) => {
     return (

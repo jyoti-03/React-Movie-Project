@@ -83,5 +83,27 @@
     padding-left:160px;
     border: 0px solid red;
     width: 960px;
-  
+}
+.Mtitle{
+    width: fit-content;
+    font-size: 36px;
+    font-family: kanti;
+    font-style:normal;
+}
+.Myear{
+    width: fit-content;
+    font-size: 16px;
+    color:#F3F3F3;
+    font-family: Kanit;
+}
+.Td{
+    font-size: 18px;
+    font-family: Kanit;
+}
+.Mov{
+    font-size: 12px;
+    width: 495px;
+    height: fit-content;
+    font-family: Kanit;
+    font-style:normal;
 }
