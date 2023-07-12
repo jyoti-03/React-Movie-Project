@@ -11,7 +11,7 @@ const Details = ({ result }) => {
             <text className="Td">Description</text>
             <br></br>
             <text className="Mov">{result.overview}</text>
-            <Review key={result.id} />
+            <Review key={result.id} result={result}/>
         </div>
     );
 };
