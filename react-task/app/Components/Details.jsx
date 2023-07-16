@@ -1,6 +1,6 @@
 import Review from "./Review";
 
-const Details = ({ result }) => {
+const Details = ({ result, handelDelete }) => {
     return (
         <div className='MovieDetails'>
             <text className="Mtitle">{result.title}</text>
@@ -11,7 +11,11 @@ const Details = ({ result }) => {
             <text className="Td">Description</text>
             <br></br>
             <text className="Mov">{result.overview}</text>
-            <Review key={result.id} result={result}/>
+            <Review
+                result={result}
+                handelDelete={handelDelete}
+            />
+            
         </div>
     );
 };

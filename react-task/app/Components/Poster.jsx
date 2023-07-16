@@ -1,8 +1,7 @@
-import React from 'react';
 import Image from 'next/image';
 import Details from './Details';
 
-const Poster = ({result}) => {
+const Poster = ({result, handelDelete}) => {
     return (
         <div className='MovieMain'>
             <div style={{height:24}}></div>
@@ -12,7 +11,11 @@ const Poster = ({result}) => {
                 alt='Movie Poster'
                 className='MoviePho'>
             </Image>
-            <Details key={result.id} result={result}/>
+            <Details 
+                key={result.id}
+                result={result}
+                handelDelete={handelDelete}
+            />
             <div style={{height:24}}></div>
             <div style={{border: 'solid .5px #5E5E75'}}></div>
         </div>
