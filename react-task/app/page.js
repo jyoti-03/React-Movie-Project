@@ -8,6 +8,7 @@ import Addmovie from './Components/Addmovie';
 
 const Home = () => {
   const [data, setData] = useState([]);
+  const [vote_count, setVoteCount] = useState({});
 
   useEffect(() => {
     const fetchMovieData = async () => {
@@ -21,12 +22,49 @@ const Home = () => {
     };
 
     fetchMovieData();
-    
+    1
   }, []);
 
   const handelDelete = (movieId) => {
-    setData((prevData) => prevData.filter((result) => result.id !== movieId));
+    setData((preData) => preData.filter((result) => result.id !== movieId));
   };
+
+  const handleVoteUp = (id) => {
+    const updatedLikes = { ...vote_count };
+
+    if (updatedLikes[id] !== undefined) {
+      updatedLikes[id] += 1;
+    } else {
+      updatedLikes[id] = 1;
+    }
+
+    setVoteCount(updatedLikes);
+  };
+  const handleVoteDown = (id) => {
+    const updatedLikes = { ...vote_count };
+
+    if (updatedLikes[id] !== undefined) {
+      updatedLikes[id] -= 1;
+    } else {
+      updatedLikes[id] = -1;
+    }
+
+    setVoteCount(updatedLikes);
+  };
+  const sortedArray = data.sort((a, b) => {
+    let likesA = 0;
+    let likesB = 0;
+
+    if (vote_count[a.id] !== undefined) {
+      likesA = vote_count[a.id];
+    }
+
+    if (vote_count[b.id] !== undefined) {
+      likesB = vote_count[b.id];
+    }
+
+    return likesB - likesA;
+  });
 
   return (
     <div className={styles.body}>
@@ -35,9 +73,15 @@ const Home = () => {
         <div style={{ height: "40px" }}></div>
         <text className="WT">Watch</text>
         <div style={{ color: "white" }}>
-          {data &&
-            data.map((result) => (
-              <Poster key={result.id} result={result} handelDelete={handelDelete} />
+          {sortedArray &&
+            sortedArray.map((result) => (
+              <Poster 
+                key={result.id}
+                result={result} 
+                handelDelete={() => handelDelete(result.id)} 
+                onLike={() => handleVoteUp(result.id)}
+                onDislike={() => handleVoteDown(result.id)}
+                vote_count={vote_count[result.id]}/>
             ))}
         </div>
         <Addmovie />

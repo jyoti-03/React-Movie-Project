@@ -1,6 +1,6 @@
 import Review from "./Review";
 
-const Details = ({ result, handelDelete }) => {
+const Details = ({ result, handelDelete, onLike, onDislike, vote_count }) => {
     return (
         <div className='MovieDetails'>
             <text className="Mtitle">{result.title}</text>
@@ -14,6 +14,9 @@ const Details = ({ result, handelDelete }) => {
             <Review
                 result={result}
                 handelDelete={handelDelete}
+                onLike={onLike}
+                onDislike={onDislike}
+                vote_count={vote_count}
             />
             
         </div>
